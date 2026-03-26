@@ -49,18 +49,24 @@ compareBtn.addEventListener("click", function () {
         }
     }
 
+
     // Final message
-    let message = document.createElement("p");
     if (differenceFound) {
-        result.classList.remove("nochange");
-        result.classList.add("change");
-        message.textContent = "Texts are different";
-    } else {
-        result.classList.remove("change");
-        result.classList.add("nochange");
-        message.textContent = "No differences found";
-    }
+    result.classList.remove("nochange");
+    result.classList.add("change");
+
+    let message = document.createElement("p");
+    message.textContent = "Texts are different";
     result.prepend(message);
+
+    } else {
+    result.classList.remove("change");
+    result.classList.add("nochange");
+
+    let li = document.createElement("li");  
+    li.textContent = "No differences found";
+    result.appendChild(li);  // append as list item
+   }
 });
 
 // Clear button to remove or clear the entire input
